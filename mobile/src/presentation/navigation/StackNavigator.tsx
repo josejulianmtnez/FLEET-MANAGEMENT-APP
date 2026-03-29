@@ -1,12 +1,12 @@
 import { createStackNavigator, StackCardStyleInterpolator } from '@react-navigation/stack';
 import { LoadingScreen } from '../screens/loading/LoadingScreen';
 import { LoginScreen } from '../screens/auth/LoginScreen';
-import { HomeScreen } from '../screens/home/HomeScreen';
+import { BottomTabNavigator } from './BottomTabNavigator';
 
 export type RootStackParams = {
     LoadingScreen: undefined;
     LoginScreen: undefined;
-    HomeScreen: undefined;
+    BottomTabNavigator: undefined;
 }
 
 const Stack = createStackNavigator<RootStackParams>();
@@ -26,7 +26,7 @@ export const StackNavigator = () => {
      }}>
       <Stack.Screen options={{ cardStyleInterpolator: fadeAnimation }} name="LoadingScreen" component={LoadingScreen} />
       <Stack.Screen options={{ cardStyleInterpolator: fadeAnimation }} name="LoginScreen" component={LoginScreen} />
-      <Stack.Screen options={{ cardStyleInterpolator: fadeAnimation }} name="HomeScreen" component={HomeScreen} />
+      <Stack.Screen options={{ cardStyleInterpolator: fadeAnimation }} name="BottomTabNavigator" component={ BottomTabNavigator } />
     </Stack.Navigator>
   );
 }

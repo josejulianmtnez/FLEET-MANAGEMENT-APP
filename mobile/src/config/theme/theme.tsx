@@ -17,9 +17,9 @@ export const dialogColors = {
 
 export const colors: ThemeColors = {
   primary: "#006446",
-  text: "black",
+  text: "#6d6d6d",
 
-  background: "#F3F2F7",
+  background: "#F2F2F2",
   cardBackground: "white",
   buttonTextColor: "white",
 };
@@ -28,7 +28,7 @@ export const lightColors: ThemeColors = {
   primary: "#006446",
   text: "black",
 
-  background: "#F3F2F7",
+  background: "#F2F2F2",
   cardBackground: "white",
   buttonTextColor: "white",
 };
