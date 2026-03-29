@@ -220,13 +220,13 @@ const styles = StyleSheet.create({
   },
 
   activeDebit: {
-    backgroundColor: "#E53935",
-    borderColor: "#E53935",
+    backgroundColor: colors.red,
+    borderColor: colors.red,
   },
 
   activeCredit: {
-    backgroundColor: colors.primary,
-    borderColor: colors.primary,
+    backgroundColor: colors.success,
+    borderColor: colors.success,
   },
 
   input: {
@@ -236,5 +236,7 @@ const styles = StyleSheet.create({
   submitButton: {
     marginTop: 10,
     borderRadius: 12,
+    backgroundColor: colors.primary,
+    borderColor: colors.primary,
   },
 });

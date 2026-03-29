@@ -1,13 +1,17 @@
 import React, { useEffect, useState, useCallback } from "react";
-import { FlatList, Image, StyleSheet, View } from "react-native";
+import { FlatList, Image, Platform, StyleSheet, View } from "react-native";
 import { Divider, Layout, Text } from "@ui-kitten/components";
 import { useAuthStore } from "../../store/auth/useAuthStore";
 import { MainLayout } from "../../layouts/MainLayout";
 import { colors } from '../../../config/theme/theme';
 import { balance as getBalance } from '../../../actions/balance/balance';
 import { useFocusEffect } from '@react-navigation/native';
+import { FAB } from "react-native-paper";
+import { MyIcon } from "../../components/ui/MyIcon";
 
 export const HomeScreen = () => {
+  const [state, setState] = useState({ open: false });
+
   const { user } = useAuthStore();
   const [balanceData, setBalanceData] = useState<{
     total_credits: number;
@@ -18,7 +22,6 @@ export const HomeScreen = () => {
   const [loading, setLoading] = useState(true);
   const movements: any[] = [];
 
-  // Recarga balance al enfocar la pantalla
   useFocusEffect(
     useCallback(() => {
       let isActive = true;
@@ -34,6 +37,10 @@ export const HomeScreen = () => {
       };
     }, [])
   );
+
+  const onStateChange = ({ open }) => setState({ open });
+
+  const { open } = state;
 
   return (
     <MainLayout title="Inicio">
@@ -94,7 +101,40 @@ export const HomeScreen = () => {
           contentContainerStyle={{ paddingBottom: 20 }}
         />
 
+
       </Layout>
+
+      <FAB.Group
+        open={open}
+        visible
+        icon={ open ? 'close' : 'plus' }
+        actions={[
+          { icon: 'truck', 
+            onPress: () => console.log('Pressed load'),
+            label: 'Carga',
+            color: 'white',
+            style: { backgroundColor: colors.red,  }
+          },
+          { icon: 'credit-card', 
+            onPress: () => console.log('Pressed add'),
+            label: 'Pago',
+            color: 'white',
+            style: { backgroundColor: colors.success }
+          },
+        ]}
+        onStateChange={onStateChange}
+        fabStyle={{ backgroundColor: colors.primary }}
+        color="white"
+        backdropColor="transparent"
+        style={{
+          position: 'absolute',
+          margin: 16,
+          right: 0,
+          bottom: Platform.OS === 'android' ? 100 : 0,
+          backgroundColor: 'transparent',
+        }}
+      />
+
     </MainLayout>
   );
 };

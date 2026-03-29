@@ -3,6 +3,8 @@ import { StyleSheet } from "react-native";
 export interface ThemeColors {
   primary: string;
   text: string;
+  red: string;
+  success: string;
 
   background: string;
   cardBackground: string;
@@ -18,27 +20,11 @@ export const dialogColors = {
 export const colors: ThemeColors = {
   primary: "#006446",
   text: "#6d6d6d",
+  red: "#e40931",
+  success: "#43A047",
 
   background: "#F2F2F2",
   cardBackground: "white",
-  buttonTextColor: "white",
-};
-
-export const lightColors: ThemeColors = {
-  primary: "#006446",
-  text: "black",
-
-  background: "#F2F2F2",
-  cardBackground: "white",
-  buttonTextColor: "white",
-};
-
-export const darkColors: ThemeColors = {
-  primary: "#006446",
-  text: "white",
-
-  background: "#090909",
-  cardBackground: "#2d2d2d",
   buttonTextColor: "white",
 };
 

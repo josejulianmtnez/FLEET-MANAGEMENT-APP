@@ -10,6 +10,7 @@ import * as eva from '@eva-design/eva';
 import { useColorScheme } from 'react-native';
 import { EvaIconsPack } from '@ui-kitten/eva-icons';
 import { AuthProvider } from './presentation/providers/AuthProvider';
+import { PaperProvider } from 'react-native-paper';
 
 export const AtjrApp = () => {
 
@@ -43,14 +44,15 @@ export const AtjrApp = () => {
   return (
     <>
       <IconRegistry icons={EvaIconsPack} />
-
-      <ApplicationProvider {...eva} theme={theme}>
-        <NavigationContainer theme={navigationTheme}>
-          <AuthProvider>
-            <StackNavigator />
-          </AuthProvider>
-        </NavigationContainer>
-      </ApplicationProvider>
+      <PaperProvider>
+        <ApplicationProvider {...eva} theme={theme}>
+          <NavigationContainer theme={navigationTheme}>
+            <AuthProvider>
+              <StackNavigator />
+            </AuthProvider>
+          </NavigationContainer>
+        </ApplicationProvider>
+      </PaperProvider>
     </>
   );
 };

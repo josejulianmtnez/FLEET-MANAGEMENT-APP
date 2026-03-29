@@ -2,7 +2,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { HomeScreen } from '../screens/tabs/HomeScreen';
 import { colors } from '../../config/theme/theme';
 import { MyIcon } from '../components/ui/MyIcon';
-import { CatalogScreen } from '../screens/tabs/CatalogScreen';
+import { ProfileScreen } from '../screens/tabs/ProfileScreen';
 import { TransactionScreen } from '../screens/tabs/TransactionScreen';
 
 const Tab = createBottomTabNavigator();
@@ -35,9 +35,9 @@ export const BottomTabNavigator = () => {
         options={{ title: 'Transacciones', tabBarIcon: ({ color }) => <MyIcon name="plus-square" color={ color } /> }} 
         component={TransactionScreen}  />
       <Tab.Screen 
-        name="CatalogScreen" 
-        options={{ title: 'Catálogos', tabBarIcon: ({ color }) => <MyIcon name="grid" color={ color } /> }} 
-        component={CatalogScreen}  />
+        name="ProfileScreen" 
+        options={{ title: 'Perfil', tabBarIcon: ({ color }) => <MyIcon name="person" color={ color } /> }} 
+        component={ProfileScreen}  />
 
     </Tab.Navigator>
   );
