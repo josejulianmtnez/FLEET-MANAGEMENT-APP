@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import * as UseCases from '../../core/use-cases';
 import { backend } from '../../config/adapters/backend.adapter';
-import { User } from '../../infrastructure/interfaces/user.response';
+import { User } from '../../infrastructure/interfaces/auth.response';
 
 export const useLogin = () => {
 
